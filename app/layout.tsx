@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Brian St Cyr - Artist Portfolio",
-  description: "Contemporary art portfolio featuring original works and custom pieces by Brian St Cyr",
-  keywords: "art, portfolio, contemporary art, artist, Brian St Cyr",
+  title: "Brian St. Cyr - Artist Portfolio",
+  description: "Contemporary art portfolio featuring original works and custom pieces by Brian St. Cyr",
+  keywords: "art, portfolio, contemporary art, artist, Brian St. Cyr",
 };
 
 export default function RootLayout({

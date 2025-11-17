@@ -9,7 +9,7 @@ export default function Home() {
       <header className="border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 py-8">
           <h1 className="text-4xl md:text-5xl font-bold text-black tracking-tight">
-            BRIAN ST CYR
+            BRIAN ST. CYR
           </h1>
         </div>
       </header>
@@ -36,7 +36,7 @@ export default function Home() {
               href={`/portfolio/${item.slug}`}
               className="group block"
             >
-              <div className="aspect-square relative overflow-hidden bg-gray-100">
+              <div className="aspect-[10/13] relative overflow-hidden bg-gray-100">
                 <Image
                   src={item.imageUrl}
                   alt={item.title}
@@ -46,7 +46,7 @@ export default function Home() {
                 />
                 
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-start">
                   <div className="p-4 text-white w-full">
                     <h2 className="text-lg font-bold tracking-tight mb-1">
                       {item.title}

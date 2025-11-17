@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { portfolioData } from '@/data/portfolio';
+import KeyboardNavigation from './KeyboardNavigation';
 
 interface PortfolioPageProps {
   params: Promise<{ slug: string }>;
@@ -37,9 +38,13 @@ export default async function PortfolioPage({ params }: PortfolioPageProps) {
 
   return (
     <div className="min-h-screen bg-white">
+      <KeyboardNavigation 
+        previousSlug={previousItem.slug} 
+        nextSlug={nextItem.slug} 
+      />
       {/* Header with Back Navigation */}
       <header className="border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 py-6">
+        <div className="max-w-7xl mx-auto px-4 py-1">
           <Link 
             href="/"
             className="inline-flex items-center text-gray-600 hover:text-black transition-colors"
@@ -51,8 +56,8 @@ export default async function PortfolioPage({ params }: PortfolioPageProps) {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 py-12">
-        <div className="text-center mb-12">
+      <main className="max-w-6xl mx-auto px-4 py-1">
+        <div className="text-center mb-1">
           <h1 className="text-4xl md:text-5xl font-bold text-black tracking-tight mb-4">
             {item.title}
           </h1>
@@ -66,38 +71,42 @@ export default async function PortfolioPage({ params }: PortfolioPageProps) {
           )}
         </div>
 
-        {/* Artwork Image */}
-        <div className="relative aspect-[4/3] w-full max-w-3xl mx-auto bg-gray-100">
-          {/* Previous Arrow */}
+        {/* Navigation Arrows - Above Image */}
+        <div className="flex justify-between items-center mb-4 px-4">
           <Link
             href={`/portfolio/${previousItem.slug}`}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white shadow-lg rounded-full p-3 transition-all duration-200 hover:scale-110 group"
+            className="flex items-center text-gray-600 hover:text-black transition-colors group"
             aria-label={`Previous: ${previousItem.title}`}
           >
-            <svg className="w-6 h-6 text-gray-700 group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
+            <span className="text-sm font-medium">Previous</span>
           </Link>
-
-          <Image
-            src={item.imageUrl}
-            alt={item.title}
-            fill
-            className="object-contain"
-            sizes="(max-width: 1200px) 100vw, 1200px"
-            priority
-          />
-
-          {/* Next Arrow */}
+          
           <Link
             href={`/portfolio/${nextItem.slug}`}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white shadow-lg rounded-full p-3 transition-all duration-200 hover:scale-110 group"
+            className="flex items-center text-gray-600 hover:text-black transition-colors group"
             aria-label={`Next: ${nextItem.title}`}
           >
-            <svg className="w-6 h-6 text-gray-700 group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span className="text-sm font-medium">Next</span>
+            <svg className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </Link>
+        </div>
+
+        {/* Artwork Image */}
+        <div className="relative w-full mx-auto">
+          <Image
+            src={item.imageUrl}
+            alt={item.title}
+            width={1200}
+            height={1600}
+            className="object-contain w-full h-auto"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+            priority
+          />
         </div>
 
         {/* Additional Details */}
