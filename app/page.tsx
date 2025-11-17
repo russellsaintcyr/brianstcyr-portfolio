@@ -7,7 +7,7 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="max-w-7xl mx-auto px-2 py-4">
           <h1 className="text-4xl md:text-5xl font-bold text-black tracking-tight">
             BRIAN ST. CYR
           </h1>
@@ -15,9 +15,9 @@ export default function Home() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 py-8">
+      <main className="max-w-7xl mx-auto py-4">
         {/* Special Link */}
-        <div className="mb-12">
+        <div className="mb-6 px-2">
           <a 
             href="https://2025stcyrfundraiser.myportfolio.com/" 
             target="_blank" 
@@ -29,7 +29,7 @@ export default function Home() {
         </div>
 
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-0">
           {portfolioData.items.map((item) => (
             <Link 
               key={item.id} 
@@ -65,8 +65,8 @@ export default function Home() {
       </main>
 
       {/* Footer Navigation */}
-      <footer className="border-t border-gray-100 mt-16">
-        <div className="max-w-7xl mx-auto px-4 py-8">
+      <footer className="border-t border-gray-100 mt-8">
+        <div className="max-w-7xl mx-auto px-2 py-4">
           <nav className="flex gap-6">
             <Link 
               href="/contact" 

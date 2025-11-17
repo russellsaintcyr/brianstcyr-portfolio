@@ -15,10 +15,10 @@ export default function KeyboardNavigation({ previousSlug, nextSlug }: KeyboardN
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'ArrowLeft') {
         event.preventDefault();
-        router.push(`/portfolio/${previousSlug}`);
+        router.push(`/portfolio/${previousSlug}`, { scroll: false });
       } else if (event.key === 'ArrowRight') {
         event.preventDefault();
-        router.push(`/portfolio/${nextSlug}`);
+        router.push(`/portfolio/${nextSlug}`, { scroll: false });
       }
     };
 

@@ -56,7 +56,7 @@ export default async function PortfolioPage({ params }: PortfolioPageProps) {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-6xl mx-auto px-4 py-1">
+      <main className="mx-auto px-4 py-1">
         <div className="text-center mb-1">
           <h1 className="text-4xl md:text-5xl font-bold text-black tracking-tight mb-4">
             {item.title}
@@ -97,14 +97,15 @@ export default async function PortfolioPage({ params }: PortfolioPageProps) {
         </div>
 
         {/* Artwork Image */}
-        <div className="relative w-full mx-auto">
+        <div className="w-full flex justify-center">
           <Image
             src={item.imageUrl}
             alt={item.title}
-            width={1200}
-            height={1600}
-            className="object-contain w-full h-auto"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+            width={0}
+            height={0}
+            className="max-w-[95vw] h-auto"
+            sizes="95vw"
+            style={{ width: 'auto', height: 'auto', maxWidth: '95vw' }}
             priority
           />
         </div>
