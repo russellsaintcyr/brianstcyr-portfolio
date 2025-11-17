@@ -7,27 +7,42 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-2 py-4">
+        <div className="max-w-7xl mx-auto px-2 py-4 flex justify-between items-center">
           <h1 className="text-4xl md:text-5xl font-bold text-black tracking-tight">
             BRIAN ST. CYR
           </h1>
+          
+          {/* Menu Icon */}
+          <div className="relative group">
+            <button className="p-2 text-gray-600 hover:text-black transition-colors">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+            
+            {/* Dropdown Menu */}
+            <div className="absolute right-0 top-full mt-1 w-48 bg-white border border-gray-200 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <Link href="/contact" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100">
+                Contact
+              </Link>
+              <a 
+                href="https://2025stcyrfundraiser.myportfolio.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block px-4 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100"
+              >
+                Fundraiser
+              </a>
+              <Link href="/biography" className="block px-4 py-3 text-gray-700 hover:bg-gray-50">
+                Biography
+              </Link>
+            </div>
+          </div>
         </div>
       </header>
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto py-4">
-        {/* Special Link */}
-        <div className="mb-6 px-2">
-          <a 
-            href="https://2025stcyrfundraiser.myportfolio.com/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-block text-lg font-medium text-blue-600 hover:text-blue-800 underline"
-          >
-            FUNDRAISER SITE
-          </a>
-        </div>
-
         {/* Portfolio Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-0">
           {portfolioData.items.map((item) => (
@@ -63,20 +78,6 @@ export default function Home() {
           ))}
         </div>
       </main>
-
-      {/* Footer Navigation */}
-      <footer className="border-t border-gray-100 mt-8">
-        <div className="max-w-7xl mx-auto px-2 py-4">
-          <nav className="flex gap-6">
-            <Link 
-              href="/contact" 
-              className="text-black hover:text-gray-600 font-medium"
-            >
-              CONTACT
-            </Link>
-          </nav>
-        </div>
-      </footer>
     </div>
   );
 }
