@@ -36,7 +36,7 @@ export default function Home() {
               href={`/portfolio/${item.slug}`}
               className="group block"
             >
-              <div className="aspect-square relative overflow-hidden bg-gray-100 mb-4">
+              <div className="aspect-square relative overflow-hidden bg-gray-100">
                 <Image
                   src={item.imageUrl}
                   alt={item.title}
@@ -44,15 +44,21 @@ export default function Home() {
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
+                
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div className="p-4 text-white w-full">
+                    <h2 className="text-lg font-bold tracking-tight mb-1">
+                      {item.title}
+                    </h2>
+                    {item.description && (
+                      <p className="text-sm text-white/90">
+                        {item.description}
+                      </p>
+                    )}
+                  </div>
+                </div>
               </div>
-              <h2 className="text-xl font-bold text-black tracking-tight group-hover:text-gray-600 transition-colors">
-                {item.title}
-              </h2>
-              {item.description && (
-                <p className="text-gray-600 mt-2 text-sm">
-                  {item.description}
-                </p>
-              )}
             </Link>
           ))}
         </div>
