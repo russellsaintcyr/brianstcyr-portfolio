@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { portfolioData } from '@/data/portfolio';
 import KeyboardNavigation from './KeyboardNavigation';
+import Header from '@/components/Header';
 
 interface PortfolioPageProps {
   params: Promise<{ slug: string }>;
@@ -19,7 +20,10 @@ function getRandomItems<T>(array: T[], count: number): T[] {
   return shuffled.slice(0, count);
 }
 
-export default async function PortfolioPage({ params }: PortfolioPageProps) {
+// PortfolioItemPage Component - Individual artwork detail page
+// Route: /portfolio/[slug]
+
+export default async function PortfolioItemPage({ params }: PortfolioPageProps) {
   const { slug } = await params;
   const item = portfolioData.items.find((item) => item.slug === slug);
 
@@ -42,45 +46,7 @@ export default async function PortfolioPage({ params }: PortfolioPageProps) {
         previousSlug={previousItem.slug} 
         nextSlug={nextItem.slug} 
       />
-      {/* Header with Back Navigation */}
-      <header className="border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-          <Link 
-            href="/"
-            className="inline-flex items-center text-gray-600 hover:text-black transition-colors"
-          >
-            <span className="mr-2">←</span>
-            Back to Portfolio
-          </Link>
-          
-          {/* Menu Icon */}
-          <div className="relative group">
-            <button className="p-2 text-gray-600 hover:text-black transition-colors">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-            
-            {/* Dropdown Menu */}
-            <div className="absolute right-0 top-full mt-1 w-48 bg-white border border-gray-200 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-              <Link href="/contact" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100">
-                Contact
-              </Link>
-              <a 
-                href="https://2025stcyrfundraiser.myportfolio.com/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block px-4 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100"
-              >
-                Fundraiser
-              </a>
-              <Link href="/biography" className="block px-4 py-3 text-gray-700 hover:bg-gray-50">
-                Biography
-              </Link>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header showBackButton={true} />
 
       {/* Main Content */}
       <main className="mx-auto px-4 py-1">
