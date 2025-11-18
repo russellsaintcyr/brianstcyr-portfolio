@@ -50,7 +50,7 @@ export default function PortfolioGrid() {
                 alt={item.title}
                 fill={true}
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 20vw"
                 priority={index < priorityCount}
                 placeholder={
                   <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
