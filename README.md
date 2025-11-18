@@ -8,7 +8,10 @@ A modern, responsive portfolio website showcasing the contemporary art of my bro
 - **Lazy Loading Images**: Performance-optimized image loading with priority loading for above-the-fold content
 - **Smooth Hover Effects**: CSS-based zoom animations on artwork previews
 - **Navigation Menu**: Collapsible header with Contact, Fundraiser, and Biography links
-- **Keyboard Navigation**: Arrow key support for artwork browsing
+- **Multi-Input Navigation**: 
+  - **Keyboard Navigation**: Arrow key support for artwork browsing on desktop
+  - **Touch/Swipe Navigation**: Mobile-friendly swipe gestures (left/right) for portfolio navigation
+- **Fundraiser Integration**: Dedicated page for artwork sales with purchase buttons and payment details
 - **Analytics Integration**: Google Analytics and Microsoft Clarity for visitor insights
 - **SEO Optimized**: Proper metadata and semantic HTML structure
 
@@ -90,6 +93,32 @@ Environment variables are set in the GitHub Actions workflow for automatic deplo
 - **Transform transitions** with 300ms duration for smooth interactions
 - **Overflow hidden containers** prevent layout shifts during zoom
 - **Opacity transitions** for loading states and overlays
+
+## 🛒 E-commerce Features
+
+### Fundraiser Integration
+- **Dedicated Fundraiser Page** (`/fundraiser`) showcasing artworks available for purchase
+- **Dynamic Pricing System** - Portfolio items support custom pricing 
+- **Purchase Buttons** - Email integration with pre-filled purchase inquiries
+- **Payment Information** - PayPal and Venmo contact details prominently displayed
+
+## 📱 Navigation & UX
+
+### Multi-Platform Input Support
+- **Desktop Navigation**:
+  - Arrow keys (left/right) for portfolio browsing
+  - Clickable navigation buttons
+  - Hover effects and visual feedback
+  
+- **Mobile Navigation**:
+  - Touch/swipe gestures for intuitive navigation
+  - Minimum 50px swipe distance prevents accidental navigation
+  - Horizontal swipe detection (prevents conflict with vertical scrolling)
+
+### Gesture Recognition
+- **Smart Touch Detection** - Distinguishes between intentional swipes and accidental touches
+- **Direction Validation** - Only horizontal swipes trigger navigation
+- **Event Handling** - Passive listeners for performance, non-passive for gesture control
 
 
 ## 🚀 Future Enhancements

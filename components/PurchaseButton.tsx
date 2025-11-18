@@ -21,7 +21,7 @@ export default function PurchaseButton({ itemTitle, price = 150, className = '' 
 I'm interested in purchasing "${itemTitle}" from your "All Marlboro Men Go To Heaven" collection. 
 I will send payment of $${price} via PayPal or Venmo as per your instructions.
 
-[PayPal newyorksaint@gmail.com]
+[PayPal: newyorksaint@gmail.com]
 [Venmo: @BrianStCyr2]
 
 Please let me know:
