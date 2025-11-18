@@ -31,7 +31,7 @@ export default function ContactPage() {
               id="name"
               name="name"
               required
-              className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors"
+              className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors text-black"
             />
           </div>
 
@@ -44,7 +44,7 @@ export default function ContactPage() {
               id="email"
               name="email"
               required
-              className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors"
+              className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors text-black"
             />
           </div>
 
@@ -57,7 +57,7 @@ export default function ContactPage() {
               id="subject"
               name="subject"
               required
-              className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors"
+              className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors text-black"
             />
           </div>
 
@@ -70,7 +70,7 @@ export default function ContactPage() {
               name="message"
               rows={6}
               required
-              className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors resize-vertical"
+              className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors resize-vertical text-black"
             ></textarea>
           </div>
 
