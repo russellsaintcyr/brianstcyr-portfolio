@@ -10,6 +10,10 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     
+    env:
+      NEXT_PUBLIC_CLARITY_PROJECT_ID: u80mdcopyu
+      NEXT_PUBLIC_GA_ID: G-4ZLBFT7MVY
+    
     steps:
     - name: Checkout
       uses: actions/checkout@v4
