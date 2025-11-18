@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Brian St. Cyr - Artist Portfolio
 
-## Getting Started
+A modern, responsive portfolio website showcasing the contemporary art of my brother Brian St. Cyr. Built with React and Next.js and optimized for performance with lazy loading, responsive design, and smooth user interactions.
 
-First, run the development server:
+## 🎨 Features
 
+- **Responsive Grid Layout**: Adaptive layout that displays 1 column on mobile, 2 on tablet, and 5 on desktop
+- **Lazy Loading Images**: Performance-optimized image loading with priority loading for above-the-fold content
+- **Smooth Hover Effects**: CSS-based zoom animations on artwork previews
+- **Navigation Menu**: Collapsible header with Contact, Fundraiser, and Biography links
+- **Keyboard Navigation**: Arrow key support for artwork browsing
+- **Analytics Integration**: Google Analytics and Microsoft Clarity for visitor insights
+- **SEO Optimized**: Proper metadata and semantic HTML structure
+
+## 🚀 Tech Stack
+
+### Core Framework
+- **[Next.js 16.0.3](https://nextjs.org/)** - React framework with App Router
+- **[React 19.2.0](https://react.dev/)** - UI library
+- **[TypeScript 5.9](https://www.typescriptlang.org/)** - Type safety
+
+### Styling & UI
+- **[Tailwind CSS 4](https://tailwindcss.com/)** - Utility-first CSS framework
+- **[Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk)** - Custom Google Font
+- **CSS Transforms** - Smooth hover animations with `group-hover:scale-105`
+
+### Performance Optimization
+- **Custom Lazy Loading** - Intersection Observer API for viewport-based image loading
+- **Responsive Priority Loading**:
+  - Mobile (< 768px): 3 priority images
+  - Tablet (768px-1024px): 6 priority images  
+  - Desktop (≥1024px): 10 priority images
+- **Next.js Image Optimization** - Automatic image optimization and WebP conversion
+
+### Analytics & Monitoring
+- **[Google Analytics](https://analytics.google.com/)** - Via `@next/third-parties/google`
+- **[Microsoft Clarity](https://clarity.microsoft.com/)** - Custom implementation with CDN loading
+
+### Testing & Quality
+- **[Vitest](https://vitest.dev/)** - Fast unit testing framework that runs on deployment
+- **ESLint** - Code linting and quality enforcement
+
+### Deployment & CI/CD
+- **GitHub Pages** - Static site hosting
+- **GitHub Actions** - Automated testing, building, and deployment
+- **Environment Variables** - Secure configuration management
+
+## 🧪 Testing
+
+### Test Coverage
+- ✅ Mobile viewport loads exactly 3 images immediately
+- ✅ Tablet viewport loads exactly 6 images immediately
+- ✅ Desktop viewport loads exactly 10 images immediately
+- ✅ Non-priority images show loading placeholders
+- ✅ Priority count updates on window resize
+- ✅ Correct responsive grid CSS classes
+
+## 🌐 Deployment
+
+### Automatic Deployment
+The site automatically deploys to GitHub Pages when changes are pushed to the `main` branch:
+
+1. **Tests Run** - Vitest ensures code quality
+2. **Build Process** - Next.js static export generation
+3. **Deploy** - Automatic deployment to GitHub Pages
+
+
+## 📊 Analytics Configuration
+
+### Environment Variables
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# .env.local (development)
+NEXT_PUBLIC_CLARITY_PROJECT_ID=u80mdcopyu
+NEXT_PUBLIC_GA_ID=G-4ZLBFT7MVY
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Production Configuration
+Environment variables are set in the GitHub Actions workflow for automatic deployment.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎯 Performance Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Lazy Loading Strategy
+- **Above-the-fold priority loading** ensures fast initial page load
+- **Responsive priority counts** optimize for different screen sizes
+- **Intersection Observer API** provides smooth lazy loading experience
+- **Loading placeholders** give visual feedback during image load
 
-## Learn More
+### CSS Animations
+- **Group hover states** for coordinated hover effects
+- **Transform transitions** with 300ms duration for smooth interactions
+- **Overflow hidden containers** prevent layout shifts during zoom
+- **Opacity transitions** for loading states and overlays
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Future Enhancements
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] Content Management System integration
+- [ ] Image optimization with multiple formats
+- [ ] Progressive Web App (PWA) features
+- [ ] Advanced SEO optimization
+- [ ] Performance monitoring dashboard
+- [ ] Social media integration
