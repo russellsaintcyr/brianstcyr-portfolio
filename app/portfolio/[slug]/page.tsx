@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { portfolioData } from '@/data/portfolio';
 import KeyboardNavigation from './KeyboardNavigation';
 import Header from '@/components/Header';
+import PurchaseButton from '@/components/PurchaseButton';
 
 interface PortfolioPageProps {
   params: Promise<{ slug: string }>;
@@ -61,6 +62,11 @@ export default async function PortfolioItemPage({ params }: PortfolioPageProps) 
           )}
           {item.year && (
             <p className="text-gray-500 mt-2">{item.year}</p>
+          )}
+          {item.forSale && (
+            <div className="mt-6">
+              <PurchaseButton itemTitle={item.title} price={item.price} />
+            </div>
           )}
         </div>
 

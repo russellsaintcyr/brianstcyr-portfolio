@@ -7,7 +7,7 @@ import Header from '@/components/Header';
 export default function BiographyPage() {
   return (
     <div className="min-h-screen bg-white">
-      <Header showBackButton={true} />
+      <Header />
 
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 py-12">

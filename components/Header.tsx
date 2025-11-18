@@ -45,9 +45,11 @@ export default function Header({ showBackButton = false, title }: HeaderProps) {
             Back to Portfolio
           </Link>
         ) : (
-          <h1 className="text-4xl md:text-5xl font-bold text-black tracking-tight">
-            {title || 'BRIAN ST. CYR'}
-          </h1>
+          <Link href="/">
+            <h1 className="text-4xl md:text-5xl font-bold text-black tracking-tight hover:text-gray-700 transition-colors cursor-pointer">
+              {title || 'BRIAN ST. CYR'}
+            </h1>
+          </Link>
         )}
         
         {/* Menu Icon */}
@@ -78,14 +80,12 @@ export default function Header({ showBackButton = false, title }: HeaderProps) {
             >
               Biography
             </Link>
-            <a 
-              href="https://2025stcyrfundraiser.myportfolio.com/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="block px-4 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100"
+            <Link 
+              href="/fundraiser" 
+              className={`block px-4 py-3 text-gray-700 hover:bg-gray-50 ${pathname === '/fundraiser' ? 'bg-gray-50' : ''}`}
             >
               Fundraiser
-            </a>            
+            </Link>            
           </div>
         </div>
       </div>

@@ -6,6 +6,8 @@ export interface PortfolioItem {
   description?: string;
   year?: string;
   medium?: string;
+  forSale?: boolean;
+  price?: number;
 }
 
 export interface PortfolioData {

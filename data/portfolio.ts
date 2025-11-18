@@ -19,6 +19,8 @@ export const portfolioData: PortfolioData = {
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/e9825648-6dfb-4224-bcbf-02c4ed3ae25b_rwc_0x180x1800x2397x1800.jpg?h=0473f373d780d4b22d1d36c81b762a6c',
       description: '"All Marlboro Men Go To Heaven" 2025 Custom Cigarette Box',
       year: '2025',
+      forSale: true,
+      price: 150,
     },
     {
       id: '3',
@@ -43,6 +45,8 @@ export const portfolioData: PortfolioData = {
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/e45e9682-17e9-4781-a4bb-5f4825be0c61_car_3x4.jpg?h=63f67f42cc02119feda6a70c392c285d',
       description: '"All Marlboro Men Go To Heaven" 2025 Custom Cigarette Box',
       year: '2025',
+      forSale: true,
+      price: 150,
     },
     {
       id: '6',
@@ -51,6 +55,8 @@ export const portfolioData: PortfolioData = {
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/9f912b23-190b-492c-bff8-aaed342e5021_car_3x4.jpg?h=4d5f027d89444be6800d2d86931436ad',
       description: '"All Marlboro Men Go To Heaven" 2025 Custom Cigarette Box',
       year: '2025',
+      forSale: true,
+      price: 150,
     },
     {
       id: '7',
