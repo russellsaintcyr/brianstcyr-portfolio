@@ -77,7 +77,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '9',
       title: 'PORTRAIT... 2025',
-      slug: 'd',
+      slug: 'portrait-2025',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/5d6a1949-e5dd-4b46-8ba0-88a32180eecb_car_3x4.jpg?h=2cee3c878404d238b6eef9a189687359',
       description: '"Portrait of the Artist as his Father as A Young Man" 2025 custom cigarette box, cigarettes #1 of 3',
       year: '2025',
@@ -85,7 +85,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '10',
       title: 'ALTAR 2025',
-      slug: 'qdqweqe',
+      slug: 'altar-2025',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/1643fdb5-2c1e-4cc4-916e-14c679ad61f1_car_3x4.jpg?h=ce61c79cd5c395838fc3958fb9170bda',
       description: '"Altar" 2025 custom cigarette box #1 of 3',
       year: '2025',
@@ -93,7 +93,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '11',
       title: 'MICKEY MARBLES 2025',
-      slug: 'zxzx',
+      slug: 'mickey-marbles-2025',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/6636d4a6-17eb-4c93-99b6-ca09ed6ca0c1_car_3x4.jpg?h=08a79c0384e2626f6d65c46a6c14a162',
       description: '"Mickey Marbles" 2025 custom cigarette box #1 of 3',
       year: '2025',
@@ -101,7 +101,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '12',
       title: 'UNICORN EARS 2025',
-      slug: 'sss',
+      slug: 'unicorn-ears-2025',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/90618c60-07a0-4599-948c-ee0d0b8b5749_car_3x4.jpg?h=45e11cd1eccae606374c3eae88925ddd',
       description: '"Unicorn Ears" 2025 custom cigarette box, tobacco #1 of 3',
       year: '2025',
@@ -109,7 +109,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '13',
       title: 'FLAT-TOP 2025',
-      slug: 'ddddd',
+      slug: 'flat-top-2025',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/29710983-1ba9-4942-8b95-4d037ea8d249_car_3x4.jpg?h=f2cb0101b5f1153606c5b03ca8e9577b',
       description: '"Flat-top" 2025 custom cigarette box #1 of 3',
       year: '2025',
@@ -117,7 +117,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '14',
       title: 'ALTAR 2 2025',
-      slug: 'dvdfd',
+      slug: 'altar-2-2025',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/4964babd-9614-466a-8217-c535a9077ee4_car_3x4.jpg?h=4083b4fe8516ae75e9f5c8f02fe6d879',
       description: '"Altar 2" 2025 custom cigarette box #1 of 3',
       year: '2025',
@@ -125,7 +125,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '15',
       title: 'CROSS 2025',
-      slug: '45t',
+      slug: 'cross-2025',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/3dbac84f-d42a-460e-b658-490c895d2d25_car_3x4.jpg?h=8a96c0d6df579659cd326dde11de08cf',
       description: '"Cross" 2025 custom cigarette box #3 of 10',
       year: '2025',
@@ -133,7 +133,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '16',
       title: 'FROG 2025',
-      slug: 'a',
+      slug: 'frog-2025',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/a7c2d541-8421-4885-97a2-c88e3e1618cc_car_3x4.jpg?h=8355c365ee21dfe0e00cbf241e06468a',
       description: '"Frog" 2025 custom cigarette box, tobacco #1 of 3',
       year: '2025',
@@ -141,7 +141,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '17',
       title: 'NO KINGS 2025',
-      slug: 'b',
+      slug: 'no-kings-2025',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/a1a89010-b4fc-41c3-9727-88efbdb6d9f2_car_3x4.jpg?h=cef89d5130a0da4923ed79a6460d8281',
       description: '"No Kings" 2025 custom cigarette box #1 of 3',
       year: '2025',
@@ -149,7 +149,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '18',
       title: 'WALL SHOT 2025',
-      slug: 'wa',
+      slug: 'wall-shot-2025',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/97d0fe5d-aacc-4f63-a8cf-9f00da019be9_car_3x4.jpg?h=8a51b258eff907369033c8896cff6126',
       description: '"WALL SHOT" 2025',
       year: '2025',
@@ -165,7 +165,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '20',
       title: 'PINOCCHIO COVID 2023 #2',
-      slug: 'covid-2',
+      slug: 'pinocchio-covid-2023-2',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/e5902f0b-c56d-416f-bd90-9b15a2131dfc_car_3x4.jpg?h=d525a49087ee83dbeb5afd30824220d3',
       description: 'Pinocchio Covid 2023 5" x 8" ink on paper',
       year: '2023',
@@ -181,7 +181,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '22',
       title: 'PINOCCHIO COVID 2023 #4',
-      slug: 'pinocchio-covid-2023-3',
+      slug: 'pinocchio-covid-2023-4',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/69a579f4-f650-4846-8f12-9d2666372f68_car_3x4.jpg?h=e8be5fb29b85581feabace7beacbd03d',
       description: 'Pinocchio Covid 2023 5" x 8" ink on paper',
       year: '2023',
@@ -189,7 +189,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '23',
       title: 'PINOCCHIO COVID 2023 #5',
-      slug: 'pinocchio-covid-2023-7',
+      slug: 'pinocchio-covid-2023-5',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/cf929ee6-23a6-4841-9607-5cbe883f3624_car_3x4.jpg?h=05b07f5d3e3bf6f5d002ad1a25ee7cac',
       description: 'Pinocchio Covid 2023 5" x 8" ink on paper',
       year: '2023',
@@ -197,7 +197,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '24',
       title: 'PINOCCHIO COVID 2023 #6',
-      slug: 'covid-3',
+      slug: 'pinocchio-covid-2023-6',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/9786a538-5b8c-4f3a-83b8-a31ac7a1fe90_car_3x4.jpg?h=f1a58d64432a0623b65738542dceb587',
       description: 'Pinocchio Covid 2023 5" x 8" ink on paper',
       year: '2023',
@@ -205,7 +205,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '25',
       title: 'PINOCCHIO COVID 2023 #7',
-      slug: 'pinomorph-1',
+      slug: 'pinocchio-covid-2023-7',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/982f23ee-04bf-4280-8d8c-ed900c229ca9_car_3x4.jpg?h=2a600b6042037dd6fb1d9dbd353684c0',
       description: 'Pinocchio Covid 2023 5" x 8" ink on paper',
       year: '2023',
@@ -213,7 +213,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '26',
       title: 'PINOCCHIO COVID 2023 #8',
-      slug: 'pinomorph-3',
+      slug: 'pinocchio-covid-2023-3',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/6845afdd-0fd2-421e-a1a1-a220a4537b69_car_3x4.jpg?h=114afcb3827caa7e7b8a74fa7bd48681',
       description: 'Pinocchio Covid 2023 5" x 8" ink on paper',
       year: '2023',
@@ -221,7 +221,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '27',
       title: 'PINOCCHIO COVID 2023 #9',
-      slug: 'pinomorph-4',
+      slug: 'pinocchio-covid-2023-9',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/76e48b3a-0336-477b-950b-fa04bd426b3b_car_3x4.jpg?h=5c336631782a1a931938842126709cbb',
       description: 'Pinocchio Covid 2023 5" x 8" ink on paper',
       year: '2023',
@@ -229,7 +229,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '28',
       title: 'PINOCCHIO COVID 2023 #10',
-      slug: 'pinomorph-5',
+      slug: 'pinocchio-covid-2023-10',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/1fee1278-cd55-45c6-a960-b701385adb57_car_3x4.jpg?h=1dcbad54cd816037b2320b4b21a41bb9',
       description: 'Pinocchio Covid 2023 5" x 8" ink on paper',
       year: '2023',
@@ -237,7 +237,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '29',
       title: 'PINOCCHIO COVID 2023 #11',
-      slug: 'pinomorph-2',
+      slug: 'pinocchio-covid-2023-11',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/9adbf8b4-2753-44e2-8f83-8481d8af3f1b_car_3x4.jpg?h=27c349190251ff1696725b8f10ed01de',
       description: 'Pinocchio Covid 2023 5" x 8" ink on paper',
       year: '2023',
@@ -245,7 +245,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '30',
       title: 'PINOCCHIO COVID 2023 #12',
-      slug: 'figure-sketchbook-7',
+      slug: 'pinocchio-covid-2023-12',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/d92faafc-f77e-4003-838a-91fb2db6cd2f_car_3x4.jpg?h=e03818538e915ad6decc44457663dfc7',
       description: 'Pinocchio Covid 2023 5" x 8" ink on paper',
       year: '2023',
@@ -269,7 +269,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '33',
       title: 'COVID SELF PORTRAIT 2023 #2',
-      slug: 'figuresketchbook',
+      slug: 'covid-self-portrait-2023-2',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/ad506791-0fbc-4ed0-9cb4-60cde074f6af_car_3x4.jpg?h=c81ba4d38b8e37073e8e5b831c4b2784',
       description: 'Covid Self Portrait 2023 5" x 8" ink on paper',
       year: '2023',
@@ -277,7 +277,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '34',
       title: 'COVID SELF PORTRAIT 2023 #3',
-      slug: 'figuresketchbook-2',
+      slug: 'covid-self-portrait-2023-3',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/cbff6660-4e7b-430d-8339-9a21aceb3d87_car_3x4.jpg?h=adaea0d35f3a740d9ee832a463e20cd3',
       description: 'Covid Self Portrait 2023 5" x 8" ink on paper',
       year: '2023',
@@ -285,7 +285,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '35',
       title: 'COVID SELF PORTRAIT 2023 #4',
-      slug: 'figuresketchbook-3',
+      slug: 'covid-self-portrait-2023-4',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/40bb5776-7f31-43c1-a404-c9e777e4aa01_car_3x4.jpg?h=e9b5197be8fbbef0cf55323ba62cfb63',
       description: 'Covid Self Portrait 2023 5" x 8" ink on paper',
       year: '2023',
@@ -293,7 +293,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '36',
       title: 'COVID SELF PORTRAIT 2023 #5',
-      slug: 'sketchbook-6',
+      slug: 'covid-self-portrait-2023-5',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/5806eb98-952f-41c6-81cd-039a489ff8d6_car_3x4.jpg?h=116c4e4d6b8d0fed4597df1086a6b42a',
       description: 'Covid Self Portrait 2023 5" x 8" ink on paper',
       year: '2023',
@@ -301,7 +301,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '37',
       title: 'COVID SELF PORTRAIT 2023 #6',
-      slug: 'figure-sketchbook-microphone',
+      slug: 'covid-self-portrait-2023-6',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/2aba51d6-a2f3-40fe-bcb5-04ecebf4cad2_car_3x4.jpg?h=8f981a1f22bae4f672ba559359044319',
       description: 'Covid Self Portrait 2023 5" x 8" ink on paper',
       year: '2023',
@@ -317,7 +317,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '39',
       title: 'MOTHERFUCKERS! 2024',
-      slug: 'personal-imagery-and-ai-mashup',
+      slug: 'motherfuckers-2024',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/402af072-a121-441c-9f3b-8c981aab6690_car_3x4.jpg?h=a399ac4ae9b3fb88a67bb88e5b7d044d',
       description: 'Motherfuckers! digital collage 2024 36" x 32"',
       year: '2024',
@@ -333,7 +333,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '41',
       title: 'PROOF! 2024',
-      slug: 'personal-imagery-and-ai-mashup-2',
+      slug: 'proof-2024',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/a6a4f692-04a0-42f8-822c-e3d3472c4526_car_3x4.jpg?h=1f38d8d7f68b6c62c92ad6f31a95a009',
       description: 'Proof! 2024 digital collage 36" x 32"',
       year: '2024',
@@ -341,7 +341,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '42',
       title: 'JESUS CHRIST! 2024',
-      slug: 'personal-imagery-and-ai-mashup-1',
+      slug: 'jesus-christ-2024',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/747682a2-0dce-4ca1-bda3-7a70ba143d4d_car_3x4.jpg?h=05e40cfee9f07805c9b3dc9382516008',
       description: 'Jesus Christ 2024 digital collage 36" x 32"',
       year: '2024',
@@ -373,7 +373,7 @@ export const portfolioData: PortfolioData = {
     {
       id: '46',
       title: 'LIMINAL SPACE 2 2024',
-      slug: 'liminal-space',
+      slug: 'liminal-space-4',
       imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/71198562-c155-4aba-8aae-3d55cf92d614_car_3x4.jpg?h=b4c37551a82fe37d05cc9cd596fc79b7',
       description: 'Liminal Space 2 2024 40" x 60" C-print #1 of 5',
       year: '2024',
