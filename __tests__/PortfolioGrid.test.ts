@@ -3,23 +3,24 @@ import { render, screen, waitFor } from '@testing-library/react'
 import { describe, test, expect, beforeEach, vi } from 'vitest'
 import PortfolioGrid from '../components/PortfolioGrid'
 
-// Mock the portfolio data with a smaller set for testing
-vi.mock('../data/portfolio', () => ({
-  portfolioData: {
-    items: Array.from({ length: 20 }, (_, i) => ({
-      id: `${i + 1}`,
-      title: `Test Artwork ${i + 1}`,
-      slug: `test-artwork-${i + 1}`,
-      imageUrl: `https://example.com/image${i + 1}.jpg`,
-      description: `Description for artwork ${i + 1}`,
-    }))
-  }
-}))
+// Create mock portfolio data for testing
+const mockPortfolioData = {
+  items: Array.from({ length: 20 }, (_, i) => ({
+    id: `${i + 1}`,
+    title: `Test Artwork ${i + 1}`,
+    slug: `test-artwork-${i + 1}`,
+    imageUrl: `https://example.com/image${i + 1}.jpg`,
+    description: `Description for artwork ${i + 1}`,
+    year: '2024',
+    forSale: false,
+    price: 0,
+  }))
+}
 
 // Mock LazyImage to help us test priority behavior
 vi.mock('../components/LazyImage', () => {
   return {
-    default: function MockLazyImage({ priority, alt, placeholder }) {
+    default: function MockLazyImage({ priority, alt, placeholder }: { priority?: boolean; alt: string; placeholder?: React.ReactNode }) {
       if (priority) {
         return React.createElement('img', { alt, src: 'priority-image.jpg', 'data-testid': 'priority-image' })
       } else {
@@ -30,7 +31,7 @@ vi.mock('../components/LazyImage', () => {
 })
 
 // Helper function to set window width and trigger resize
-const setWindowWidth = (width) => {
+const setWindowWidth = (width: number) => {
   Object.defineProperty(window, 'innerWidth', {
     writable: true,
     configurable: true,
@@ -55,7 +56,7 @@ describe('PortfolioGrid Lazy Loading', () => {
     // Set mobile width
     setWindowWidth(500)
     
-    render(React.createElement(PortfolioGrid))
+    render(React.createElement(PortfolioGrid, { portfolioData: mockPortfolioData }))
     
     await waitFor(() => {
       const priorityImages = screen.getAllByTestId('priority-image')
@@ -72,7 +73,7 @@ describe('PortfolioGrid Lazy Loading', () => {
     // Set tablet width
     setWindowWidth(800)
     
-    render(React.createElement(PortfolioGrid))
+    render(React.createElement(PortfolioGrid, { portfolioData: mockPortfolioData }))
     
     await waitFor(() => {
       const priorityImages = screen.getAllByTestId('priority-image')
@@ -87,7 +88,7 @@ describe('PortfolioGrid Lazy Loading', () => {
     // Set desktop width  
     setWindowWidth(1200)
     
-    render(React.createElement(PortfolioGrid))
+    render(React.createElement(PortfolioGrid, { portfolioData: mockPortfolioData }))
     
     await waitFor(() => {
       const priorityImages = screen.getAllByTestId('priority-image')
@@ -99,7 +100,7 @@ describe('PortfolioGrid Lazy Loading', () => {
   })
 
   test('shows loading placeholders for non-priority images', async () => {
-    render(React.createElement(PortfolioGrid))
+    render(React.createElement(PortfolioGrid, { portfolioData: mockPortfolioData }))
     
     // Should show loading placeholders for non-priority images
     const lazyPlaceholders = screen.getAllByTestId('lazy-placeholder')
@@ -110,7 +111,7 @@ describe('PortfolioGrid Lazy Loading', () => {
     // Start with desktop width first
     setWindowWidth(1200)
     
-    const { unmount } = render(React.createElement(PortfolioGrid))
+    const { unmount } = render(React.createElement(PortfolioGrid, { portfolioData: mockPortfolioData }))
     
     await waitFor(() => {
       const priorityImages = screen.getAllByTestId('priority-image')
@@ -121,7 +122,7 @@ describe('PortfolioGrid Lazy Loading', () => {
     unmount()
     
     setWindowWidth(400)
-    render(React.createElement(PortfolioGrid))
+    render(React.createElement(PortfolioGrid, { portfolioData: mockPortfolioData }))
     
     await waitFor(() => {
       const priorityImages = screen.getAllByTestId('priority-image')
@@ -130,7 +131,7 @@ describe('PortfolioGrid Lazy Loading', () => {
   })
 
   test('renders correct grid layout classes for different screen sizes', async () => {
-    render(React.createElement(PortfolioGrid))
+    render(React.createElement(PortfolioGrid, { portfolioData: mockPortfolioData }))
     
     const gridContainer = screen.getByRole('main').querySelector('.grid')
     
