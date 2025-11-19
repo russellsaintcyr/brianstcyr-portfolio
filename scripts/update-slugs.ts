@@ -11,7 +11,8 @@ const __dirname = dirname(__filename);
 dotenv.config({ path: resolve(__dirname, '../.env.local') });
 
 // Import portfolio data directly from TypeScript file
-import { portfolioData } from '../data/PortfolioData.js';
+import { portfolioData } from '../data/PortfolioData';
+import { createReadStream } from 'fs';
 
 // --- CONFIGURATION ---
 const SPACE_ID = process.env.CONTENTFUL_SPACE_ID!;
