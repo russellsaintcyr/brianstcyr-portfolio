@@ -11,7 +11,7 @@ const __dirname = dirname(__filename);
 dotenv.config({ path: resolve(__dirname, '../.env.local') });
 
 // Import portfolio data directly from TypeScript file
-import { portfolioData } from '../data/portfolioData.js';
+import { portfolioData } from '../data/PortfolioData.js';
 import { createReadStream } from 'fs';
 
 // --- CONFIGURATION ---

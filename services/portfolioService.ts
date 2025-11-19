@@ -1,4 +1,4 @@
-import client from './contentfulService';
+import client from './ContentfulService';
 import { PortfolioItem, PortfolioData } from '@/types/portfolio';
 
 // Transform Contentful entry to PortfolioItem
@@ -26,9 +26,8 @@ export async function getPortfolioData(): Promise<PortfolioData> {
     const response = await client.getEntries({
       content_type: 'art',
       limit: 100, // Adjust if you have more than 100 items
-      order: 'sys.createdAt', // You can change the ordering
+      order: ['sys.createdAt'], // You can change the ordering
     });
-    console.log(response.items); // Debugging line
     const items: PortfolioItem[] = response.items.map(transformContentfulEntry);
 
     return {

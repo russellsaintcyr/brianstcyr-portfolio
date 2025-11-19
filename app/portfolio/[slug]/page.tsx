@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getPortfolioData, getPortfolioItemBySlug } from '@/services/portfolioService';
+import { getPortfolioData, getPortfolioItemBySlug } from '@/services/PortfolioService';
 import KeyboardNavigation from './KeyboardNavigation';
 import Header from '@/components/Header';
 import PurchaseButton from '@/components/PurchaseButton';

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { getPortfolioData } from '@/services/portfolioService';
+import { getPortfolioData } from '@/services/PortfolioService';
 import Header from '@/components/Header';
 import PurchaseButton from '@/components/PurchaseButton';
 
