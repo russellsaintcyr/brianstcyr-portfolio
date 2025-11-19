@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getPortfolioData, getPortfolioItemBySlug } from '@/lib/portfolio';
+import { getPortfolioData } from '@/lib/portfolio';
 import KeyboardNavigation from './KeyboardNavigation';
 import Header from '@/components/Header';
 import PurchaseButton from '@/components/PurchaseButton';
@@ -27,10 +27,10 @@ function getRandomItems<T>(array: T[], count: number): T[] {
 
 export default async function PortfolioItemPage({ params }: PortfolioPageProps) {
   const { slug } = await params;
-  const [item, portfolioData] = await Promise.all([
-    getPortfolioItemBySlug(slug),
-    getPortfolioData()
-  ]);
+  const portfolioData = await getPortfolioData();
+  
+  // Find the item by slug from the data we already fetched
+  const item = portfolioData.items.find((item) => item.slug === slug);
 
   if (!item) {
     notFound();
@@ -54,7 +54,7 @@ export default async function PortfolioItemPage({ params }: PortfolioPageProps) 
       <Header showBackButton={true} />
 
       {/* Main Content */}
-      <main className="mx-auto px-4 py-1">
+      <main className="mx-auto px-4 py-1 pb-10">
         <div className="text-center mb-1">
           <h1 className="text-4xl md:text-5xl font-bold text-black tracking-tight mb-4">
             {item.title}
@@ -122,35 +122,6 @@ export default async function PortfolioItemPage({ params }: PortfolioPageProps) 
           </div>
         )}
       </main>
-
-      {/* Navigation to Other Works */}
-      <section className="border-t border-gray-100 py-12">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-black mb-8">Other Works</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {randomOtherItems.map((otherItem) => (
-              <Link 
-                key={otherItem.id}
-                href={`/portfolio/${otherItem.slug}`}
-                className="group block"
-              >
-                <div className="aspect-square relative overflow-hidden bg-gray-100 mb-2">
-                  <Image
-                    src={otherItem.imageUrl}
-                    alt={otherItem.title}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                  />
-                </div>
-                <h3 className="text-sm font-medium text-black group-hover:text-gray-600 transition-colors">
-                  {otherItem.title}
-                </h3>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
