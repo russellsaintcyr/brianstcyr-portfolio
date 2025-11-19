@@ -17,8 +17,8 @@ import { createReadStream } from 'fs';
 // --- CONFIGURATION ---
 const SPACE_ID = process.env.CONTENTFUL_SPACE_ID!;
 const MANAGEMENT_TOKEN = process.env.CONTENTFUL_MANAGEMENT_TOKEN!;
-const ENVIRONMENT_ID = 'master';
-const CONTENT_TYPE_ID = 'art';
+const ENVIRONMENT_ID = process.env.CONTENTFUL_ENVIRONMENT_ID! || 'master';
+const CONTENT_TYPE_ID = process.env.CONTENTFUL_CONTENT_TYPE_ID!;
 const LOCALE = 'en-US';
 
 console.log('Using Contentful Space ID:', SPACE_ID);
@@ -82,11 +82,11 @@ async function runSeed() {
         let entry;
         const entryFields = {
             displayTitle: { [LOCALE]: item.title },
-            description: { [LOCALE]: item.description },
-            year: { [LOCALE]: item.year },
-            forSale: { [LOCALE]: item.forSale },
-            price: { [LOCALE]: item.price },
-            photo: assetLink ? { [LOCALE]: assetLink } : undefined 
+            slug: { [LOCALE]: item.slug },
+            description: { [LOCALE]: item.description ? item.description : '' },
+            year: { [LOCALE]: item.year ? parseInt(item.year.toString(), 10) : 0 },
+            forSale: { [LOCALE]: item.forSale ? item.forSale : false },
+            price: { [LOCALE]: item.price ? parseFloat(item.price.toString()) : 0 }
         };
  
         try {

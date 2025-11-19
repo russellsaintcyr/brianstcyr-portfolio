@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { portfolioData } from '@/data/portfolio';
+import { getPortfolioData, getPortfolioItemBySlug } from '@/lib/portfolio';
 import KeyboardNavigation from './KeyboardNavigation';
 import Header from '@/components/Header';
 import PurchaseButton from '@/components/PurchaseButton';
@@ -11,6 +11,7 @@ interface PortfolioPageProps {
 }
 
 export async function generateStaticParams() {
+  const portfolioData = await getPortfolioData();
   return portfolioData.items.map((item) => ({
     slug: item.slug,
   }));
@@ -26,7 +27,10 @@ function getRandomItems<T>(array: T[], count: number): T[] {
 
 export default async function PortfolioItemPage({ params }: PortfolioPageProps) {
   const { slug } = await params;
-  const item = portfolioData.items.find((item) => item.slug === slug);
+  const [item, portfolioData] = await Promise.all([
+    getPortfolioItemBySlug(slug),
+    getPortfolioData()
+  ]);
 
   if (!item) {
     notFound();

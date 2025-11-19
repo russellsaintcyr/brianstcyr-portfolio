@@ -7,16 +7,17 @@ const nextConfig: NextConfig = {
   assetPrefix: process.env.NODE_ENV === 'production' ? '/brianstcyr-portfolio/' : '',
   images: {
     unoptimized: true,
+    qualities: [75, 85],
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'cdn.myportfolio.com',
+        hostname: 'images.ctfassets.net',
         port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: 'picsum.photos',
+        hostname: 'cdn.myportfolio.com',
         port: '',
         pathname: '/**',
       },

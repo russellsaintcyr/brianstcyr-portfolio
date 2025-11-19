@@ -1,17 +1,17 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { portfolioData } from '@/data/portfolio';
 import Header from '@/components/Header';
 import PortfolioGrid from '@/components/PortfolioGrid';
+import { getPortfolioData } from '@/lib/portfolio';
 
 // HomePage Component - Main portfolio landing page
 // Route: /
 
-export default function HomePage() {
+export default async function HomePage() {
+  const portfolioData = await getPortfolioData();
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <PortfolioGrid />
+      <PortfolioGrid portfolioData={portfolioData} />
     </div>
   );
 }

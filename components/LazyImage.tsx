@@ -60,7 +60,7 @@ export default function LazyImage({
   }, [priority]);
 
   return (
-    <div ref={imgRef} className="w-full h-full">
+    <div ref={imgRef} className={`w-full h-full ${fill ? 'relative' : ''}`}>
       {isInView ? (
         <Image
           src={src}

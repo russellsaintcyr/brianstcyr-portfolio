@@ -1,16 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { portfolioData } from '@/data/portfolio';
+import { getPortfolioData } from '@/lib/portfolio';
 import Header from '@/components/Header';
 import PurchaseButton from '@/components/PurchaseButton';
-
-// Filter items that are for sale
-const forSaleItems = portfolioData.items.filter(item => item.forSale);
 
 // FundraiserPage Component - Shows items available for purchase
 // Route: /fundraiser
 
-export default function FundraiserPage() {
+export default async function FundraiserPage() {
+  const portfolioData = await getPortfolioData();
+  // Filter items that are for sale
+  const forSaleItems = portfolioData.items.filter(item => item.forSale);
+
   return (
     <div className="min-h-screen bg-white">
       <Header />

@@ -1,11 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import { portfolioData } from '@/data/portfolio';
+import { PortfolioData } from '@/types/portfolio';
 import LazyImage from './LazyImage';
 import { useState, useEffect } from 'react';
 
-export default function PortfolioGrid() {
+interface PortfolioGridProps {
+  portfolioData: PortfolioData;
+}
+
+export default function PortfolioGrid({ portfolioData }: PortfolioGridProps) {
   const [priorityCount, setPriorityCount] = useState(2); // Default for mobile
 
   useEffect(() => {
