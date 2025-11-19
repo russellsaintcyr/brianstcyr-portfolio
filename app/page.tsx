@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 import PortfolioGrid from '@/components/PortfolioGrid';
-import { getPortfolioData } from '@/lib/portfolio';
+import { getPortfolioData } from '@/services/portfolioService';
 
 // HomePage Component - Main portfolio landing page
 // Route: /

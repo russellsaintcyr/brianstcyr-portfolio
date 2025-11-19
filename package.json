@@ -12,7 +12,8 @@
     "deploy": "gh-pages -d out",
     "test": "vitest",
     "test:watch": "vitest --watch",
-    "seed-contentful": "npx tsx scripts/seed-contentful.ts"
+    "seed-contentful": "npx tsx scripts/seed-contentful.ts",
+    "update-slugs": "npx tsx scripts/update-slugs.ts"
   },
   "dependencies": {
     "@next/third-parties": "^16.0.3",
