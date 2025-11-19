@@ -11,7 +11,8 @@
     "export": "next build",
     "deploy": "gh-pages -d out",
     "test": "vitest",
-    "test:watch": "vitest --watch"
+    "test:watch": "vitest --watch",
+    "seed-contentful": "npx tsx scripts/seed-contentful.ts"
   },
   "dependencies": {
     "@next/third-parties": "^16.0.3",
@@ -19,7 +20,8 @@
     "dotenv": "^17.2.3",
     "next": "16.0.3",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "tsx": "^4.20.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

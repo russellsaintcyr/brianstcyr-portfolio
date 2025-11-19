@@ -10,40 +10,30 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 dotenv.config({ path: resolve(__dirname, '../.env.local') });
 
+// Import portfolio data directly from TypeScript file
+import { portfolioData } from '../data/portfolio.js';
+import { createReadStream } from 'fs';
+
 // --- CONFIGURATION ---
-const SPACE_ID = process.env.CONTENTFUL_SPACE_ID;
-const MANAGEMENT_TOKEN = process.env.CONTENTFUL_MANAGEMENT_TOKEN;
+const SPACE_ID = process.env.CONTENTFUL_SPACE_ID!;
+const MANAGEMENT_TOKEN = process.env.CONTENTFUL_MANAGEMENT_TOKEN!;
 const ENVIRONMENT_ID = 'master';
 const CONTENT_TYPE_ID = 'art';
 const LOCALE = 'en-US';
 
 console.log('Using Contentful Space ID:', SPACE_ID);
-console.log('Using Contentful Management Token:', MANAGEMENT_TOKEN);
+console.log('Using Contentful Management Token:', MANAGEMENT_TOKEN ? '[SET]' : '[NOT SET]');
 
-// --- YOUR DATA ---
-const jsonData = [
-  {
-    id: '2',
-    title: 'CAMEL BLUE',
-    slug: 'camel-blue-castle',
-    imageUrl: 'https://cdn.myportfolio.com/c0f809db-0ad5-4af5-b8cc-71412e32977c/e9825648-6dfb-4224-bcbf-02c4ed3ae25b_rwc_0x180x1800x2397x1800.jpg?h=0473f373d780d4b22d1d36c81b762a6c%27',
-    description: '"All Marlboro Men Go To Heaven" 2025 Custom Cigarette Box',
-    year: '2025',
-    forSale: true,
-    price: 150,
-  }
-];
- 
 // Initialize client using the imported function
 const client = createClient({ accessToken: MANAGEMENT_TOKEN });
  
 async function runSeed() {
-  console.log(`Starting import for ${jsonData.length} items...`);
+  console.log(`Starting import for ${portfolioData.items.length} items...`);
   try {
     const space = await client.getSpace(SPACE_ID);
     const env = await space.getEnvironment(ENVIRONMENT_ID);
  
-    for (const item of jsonData) {
+    for (const item of portfolioData.items) {
       try {
         console.log(`\nProcessing: ${item.title} (ID: ${item.id})`);
         // --- STEP 1: HANDLE ASSET (IMAGE) ---
@@ -65,7 +55,7 @@ async function runSeed() {
                             [LOCALE]: {
                                 contentType: 'image/jpeg',
                                 fileName: `${item.slug}.jpg`,
-                                file: createReadStream(`'../public/images/${item.slug}.jpg'`)
+                                file: createReadStream(resolve(__dirname, `../public/images/${item.slug}.jpg`))
                             }
                         }
                     }
@@ -107,7 +97,7 @@ async function runSeed() {
             entry.fields = { ...entry.fields, ...entryFields };
             entry = await entry.update();
  
-        } catch (e) {
+        } catch (e: any) {
              if (e.name === 'NotFound') {
                 console.log(`  -> Entry not found. Creating...`);
                 entry = await env.createEntryWithId(CONTENT_TYPE_ID, item.id, {
@@ -126,7 +116,7 @@ async function runSeed() {
             console.log(`  -> SUCCESS: Entry already up to date.`);
         }
  
-      } catch (itemError) {
+      } catch (itemError: any) {
         console.error(`  -> ERROR processing item ${item.id}:`, itemError.message);
       }
     }
@@ -139,7 +129,7 @@ async function runSeed() {
 }
  
 // Helper function remains the same
-async function waitForAssetProcessing(asset) {
+async function waitForAssetProcessing(asset: any) {
     return new Promise(resolve => setTimeout(resolve, 2000));
 }
  
