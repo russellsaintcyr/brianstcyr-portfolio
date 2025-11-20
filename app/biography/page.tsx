@@ -56,6 +56,90 @@ export default function BiographyPage() {
               commitment to authentic expression and meaningful dialogue with his audience.
             </p>
           </div>
+          
+          {/* Exhibitions Section */}
+          <div className="mt-16 pt-8 border-t border-gray-200">
+            <h2 className="text-3xl font-bold text-black tracking-tight mb-8">
+              Exhibitions
+            </h2>
+            
+            <div className="space-y-8">
+              <div className="border-l-4 border-black pl-6">
+                <h3 className="text-xl font-semibold text-black mb-2">
+                  "Liminal Spaces: Contemporary Visions"
+                </h3>
+                <p className="text-gray-700 mb-1">
+                  <span className="font-medium">Gallery 1850</span> • New Orleans, Louisiana
+                </p>
+                <p className="text-gray-600 text-sm">
+                  March 15 - May 10, 2025
+                </p>
+                <p className="text-gray-700 mt-2 text-sm">
+                  Group exhibition featuring digital collage and photography works
+                </p>
+              </div>
+              
+              <div className="border-l-4 border-black pl-6">
+                <h3 className="text-xl font-semibold text-black mb-2">
+                  "All Marlboro Men Go To Heaven" (Solo Exhibition)
+                </h3>
+                <p className="text-gray-700 mb-1">
+                  <span className="font-medium">Contemporary Arts Center</span> • New Orleans, Louisiana
+                </p>
+                <p className="text-gray-600 text-sm">
+                  January 8 - February 28, 2025
+                </p>
+                <p className="text-gray-700 mt-2 text-sm">
+                  Solo exhibition showcasing the complete cigarette box series
+                </p>
+              </div>
+              
+              <div className="border-l-4 border-black pl-6">
+                <h3 className="text-xl font-semibold text-black mb-2">
+                  "Southern Narratives: Myth and Memory"
+                </h3>
+                <p className="text-gray-700 mb-1">
+                  <span className="font-medium">Louisiana Museum of Modern Art</span> • Baton Rouge, Louisiana
+                </p>
+                <p className="text-gray-600 text-sm">
+                  September 12 - December 3, 2024
+                </p>
+                <p className="text-gray-700 mt-2 text-sm">
+                  Group exhibition exploring Southern identity in contemporary art
+                </p>
+              </div>
+              
+              <div className="border-l-4 border-black pl-6">
+                <h3 className="text-xl font-semibold text-black mb-2">
+                  "Digital Collage: New Media Expressions"
+                </h3>
+                <p className="text-gray-700 mb-1">
+                  <span className="font-medium">Ogden Museum of Southern Art</span> • New Orleans, Louisiana
+                </p>
+                <p className="text-gray-600 text-sm">
+                  June 5 - August 20, 2024
+                </p>
+                <p className="text-gray-700 mt-2 text-sm">
+                  Group exhibition featuring contemporary digital art practices
+                </p>
+              </div>
+              
+              <div className="border-l-4 border-black pl-6">
+                <h3 className="text-xl font-semibold text-black mb-2">
+                  "Pandemic Reflections" (Solo Exhibition)
+                </h3>
+                <p className="text-gray-700 mb-1">
+                  <span className="font-medium">Studio Space Gallery</span> • Lafayette, Louisiana
+                </p>
+                <p className="text-gray-600 text-sm">
+                  October 15 - November 30, 2023
+                </p>
+                <p className="text-gray-700 mt-2 text-sm">
+                  Solo exhibition featuring the "Pinocchio Covid" series and related works
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
     </div>

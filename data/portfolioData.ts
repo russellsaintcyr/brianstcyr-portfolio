@@ -1,6 +1,6 @@
 // Portfolio data based on Brian's website - Complete gallery with 54 items
 // Items are arranged in 11 rows: 10 rows of 5 items + 1 row of 4 items = 54 total
-import { PortfolioData } from '@/types/portfolio';
+import { PortfolioData } from '../types/portfolio';
 
 // Portfolio data based on Brian's website - Complete gallery with 54 items
 // Extracted from brianstcyr.myportfolio.com using browser console script
