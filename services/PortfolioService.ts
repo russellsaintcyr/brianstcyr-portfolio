@@ -1,5 +1,13 @@
 import client from './ContentfulService';
 import { PortfolioItem, PortfolioData } from '@/types/portfolio';
+import { portfolioData as staticPortfolioData } from '@/data/PortfolioData';
+
+// Check if Contentful is properly configured
+const isContentfulConfigured = () => {
+  return process.env.CONTENTFUL_SPACE_ID && 
+         process.env.CONTENTFUL_ACCESS_TOKEN && 
+         process.env.CONTENTFUL_SPACE_ID !== 'fallback-space';
+};
 
 // Transform Contentful entry to PortfolioItem
 function transformContentfulEntry(entry: any): PortfolioItem {
@@ -22,6 +30,12 @@ function transformContentfulEntry(entry: any): PortfolioItem {
 
 // Fetch all portfolio items from Contentful
 export async function getPortfolioData(): Promise<PortfolioData> {
+  // Use static data if Contentful is not configured
+  if (!isContentfulConfigured()) {
+    console.log('📁 Using static portfolio data (Contentful not configured)');
+    return staticPortfolioData;
+  }
+
   try {
     const response = await client.getEntries({
       content_type: 'art',
@@ -35,7 +49,8 @@ export async function getPortfolioData(): Promise<PortfolioData> {
     };
   } catch (error) {
     console.error('Error fetching portfolio data from Contentful:', error);
-    throw error;
+    console.log('📁 Falling back to static portfolio data');
+    return staticPortfolioData;
   }
 }
 
@@ -52,6 +67,12 @@ export async function getPortfolioItem(id: string): Promise<PortfolioItem | null
 
 // Fetch portfolio item by slug (for dynamic routes)
 export async function getPortfolioItemBySlug(slug: string): Promise<PortfolioItem | null> {
+  // Use static data if Contentful is not configured
+  if (!isContentfulConfigured()) {
+    console.log(`📁 Using static data to find item with slug: ${slug}`);
+    return staticPortfolioData.items.find(item => item.slug === slug) || null;
+  }
+
   try {
     const response = await client.getEntries({
       content_type: 'art',
@@ -60,12 +81,15 @@ export async function getPortfolioItemBySlug(slug: string): Promise<PortfolioIte
     });
 
     if (response.items.length === 0) {
-      return null;
+      // Fallback to static data if not found in Contentful
+      console.log(`📁 Item not found in Contentful, checking static data for slug: ${slug}`);
+      return staticPortfolioData.items.find(item => item.slug === slug) || null;
     }
 
     return transformContentfulEntry(response.items[0]);
   } catch (error) {
     console.error(`Error fetching portfolio item with slug ${slug} from Contentful:`, error);
-    return null;
+    console.log(`📁 Falling back to static data for slug: ${slug}`);
+    return staticPortfolioData.items.find(item => item.slug === slug) || null;
   }
 }
