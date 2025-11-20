@@ -1,31 +1,34 @@
 # Brian St. Cyr - Artist Portfolio
 
-A modern, responsive portfolio website showcasing the contemporary art of my brother Brian St. Cyr. Built with React and Next.js and optimized for performance with lazy loading, responsive design, and smooth user interactions.
+A modern, responsive portfolio website showcasing the contemporary art of Brian St. Cyr. Built with Next.js and integrated with Contentful CMS for dynamic content management, featuring lazy loading optimization and multi-platform navigation.
 
 ## 🎨 Features
 
+- **Dynamic Content Management**: Contentful CMS integration for images and metadata, with automatic fallback to static data
 - **Responsive Grid Layout**: Adaptive layout that displays 1 column on mobile, 2 on tablet, and 5 on desktop
-- **Lazy Loading Images**: Performance-optimized image loading with priority loading for above-the-fold content
-- **Smooth Hover Effects**: CSS-based zoom animations on artwork previews
-- **Navigation Menu**: Collapsible header with Contact, Fundraiser, and Biography links
+- **Smart Lazy Loading**: Performance-optimized image loading with responsive priority counts
+- **SEO-Friendly URLs**: Slug-based routing (e.g., `/portfolio/marlboro-black-100s/`)
 - **Multi-Input Navigation**: 
   - **Keyboard Navigation**: Arrow key support for artwork browsing on desktop
-  - **Touch/Swipe Navigation**: Mobile-friendly swipe gestures (left/right) for portfolio navigation
+  - **Touch/Swipe Navigation**: Mobile-friendly swipe gestures for portfolio navigation
 - **Fundraiser Integration**: Dedicated page for artwork sales with purchase buttons and payment details
 - **Analytics Integration**: Google Analytics and Microsoft Clarity for visitor insights
-- **SEO Optimized**: Proper metadata and semantic HTML structure
+- **Professional File Organization**: PascalCase naming conventions for services and components
 
 ## 🚀 Tech Stack
 
+### Content Management
+- **[Contentful](https://contentful.com/)** - Headless CMS with Contentful API
+- **Dynamic/Static Hybrid** - Contentful data with static fallback for reliability
+
 ### Core Framework
-- **[Next.js 16.0.3](https://nextjs.org/)** - React framework with App Router
+- **[Next.js 16.0.3](https://nextjs.org/)** - React framework with App Router and static generation
 - **[React 19.2.0](https://react.dev/)** - UI library
 - **[TypeScript 5.9](https://www.typescriptlang.org/)** - Type safety
 
 ### Styling & UI
 - **[Tailwind CSS 4](https://tailwindcss.com/)** - Utility-first CSS framework
 - **[Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk)** - Custom Google Font
-- **CSS Transforms** - Smooth hover animations with `group-hover:scale-105`
 
 ### Performance Optimization
 - **Custom Lazy Loading** - Intersection Observer API for viewport-based image loading
