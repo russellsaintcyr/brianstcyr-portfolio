@@ -1,6 +1,6 @@
 import client from './ContentfulService';
 import { PortfolioItem, PortfolioData } from '@/types/portfolio';
-import { portfolioData as staticPortfolioData } from '../data/PortfolioData';
+import { portfolioData as staticPortfolioData } from '@/data/PortfolioData';
 
 // Check if Contentful is properly configured
 const isContentfulConfigured = () => {
