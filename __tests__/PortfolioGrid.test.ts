@@ -52,8 +52,8 @@ describe('PortfolioGrid Lazy Loading', () => {
     vi.clearAllMocks()
   })
 
-  test('loads only 3 images immediately on mobile width', async () => {
-    // Set mobile width
+  test('loads only 3 images immediately on small mobile width', async () => {
+    // Set small mobile width (< 640px)
     setWindowWidth(500)
     
     render(React.createElement(PortfolioGrid, { portfolioData: mockPortfolioData }))
@@ -62,15 +62,30 @@ describe('PortfolioGrid Lazy Loading', () => {
       const priorityImages = screen.getAllByTestId('priority-image')
       const lazyPlaceholders = screen.getAllByTestId('lazy-placeholder')
       
-      // Should have exactly 3 priority images on mobile
+      // Should have exactly 3 priority images on small mobile
       expect(priorityImages).toHaveLength(3)
       // Should have 17 lazy placeholders (20 total - 3 priority)
       expect(lazyPlaceholders).toHaveLength(17)
     })
   })
 
+  test('loads 4 images immediately on large mobile width', async () => {
+    // Set large mobile width (640px - 768px)
+    setWindowWidth(700)
+    
+    render(React.createElement(PortfolioGrid, { portfolioData: mockPortfolioData }))
+    
+    await waitFor(() => {
+      const priorityImages = screen.getAllByTestId('priority-image')
+      const lazyPlaceholders = screen.getAllByTestId('lazy-placeholder')
+      
+      expect(priorityImages).toHaveLength(4)
+      expect(lazyPlaceholders).toHaveLength(16)
+    })
+  })
+
   test('loads 6 images immediately on tablet width', async () => {
-    // Set tablet width
+    // Set tablet width (768px - 1024px)
     setWindowWidth(800)
     
     render(React.createElement(PortfolioGrid, { portfolioData: mockPortfolioData }))
@@ -84,9 +99,24 @@ describe('PortfolioGrid Lazy Loading', () => {
     })
   })
 
-  test('loads 10 images immediately on desktop width', async () => {
-    // Set desktop width  
+  test('loads 8 images immediately on small desktop width', async () => {
+    // Set small desktop width (1024px - 1280px)
     setWindowWidth(1200)
+    
+    render(React.createElement(PortfolioGrid, { portfolioData: mockPortfolioData }))
+    
+    await waitFor(() => {
+      const priorityImages = screen.getAllByTestId('priority-image')
+      const lazyPlaceholders = screen.getAllByTestId('lazy-placeholder')
+      
+      expect(priorityImages).toHaveLength(8)
+      expect(lazyPlaceholders).toHaveLength(12)
+    })
+  })
+
+  test('loads 10 images immediately on large desktop width', async () => {
+    // Set large desktop width (≥ 1280px)  
+    setWindowWidth(1400)
     
     render(React.createElement(PortfolioGrid, { portfolioData: mockPortfolioData }))
     
@@ -108,14 +138,14 @@ describe('PortfolioGrid Lazy Loading', () => {
   })
 
   test('updates priority count when window is resized', async () => {
-    // Start with desktop width first
+    // Start with small desktop width first
     setWindowWidth(1200)
     
     const { unmount } = render(React.createElement(PortfolioGrid, { portfolioData: mockPortfolioData }))
     
     await waitFor(() => {
       const priorityImages = screen.getAllByTestId('priority-image')
-      expect(priorityImages).toHaveLength(10)
+      expect(priorityImages).toHaveLength(8)  // Small desktop shows 8 images
     })
     
     // Unmount and remount with mobile width to ensure clean state
@@ -126,7 +156,7 @@ describe('PortfolioGrid Lazy Loading', () => {
     
     await waitFor(() => {
       const priorityImages = screen.getAllByTestId('priority-image')
-      expect(priorityImages).toHaveLength(3)
+      expect(priorityImages).toHaveLength(3)  // Small mobile shows 3 images
     })
   })
 
@@ -135,9 +165,11 @@ describe('PortfolioGrid Lazy Loading', () => {
     
     const gridContainer = screen.getByRole('main').querySelector('.grid')
     
-    // Should have responsive grid classes
-    expect(gridContainer?.classList.contains('grid-cols-1')).toBe(true) // mobile
-    expect(gridContainer?.classList.contains('md:grid-cols-2')).toBe(true) // tablet  
-    expect(gridContainer?.classList.contains('lg:grid-cols-5')).toBe(true) // desktop
+    // Should have all responsive grid classes for the 5-tier system
+    expect(gridContainer?.classList.contains('grid-cols-1')).toBe(true)       // Default mobile
+    expect(gridContainer?.classList.contains('sm:grid-cols-2')).toBe(true)    // Small mobile (640px+)
+    expect(gridContainer?.classList.contains('md:grid-cols-3')).toBe(true)    // Tablet (768px+) 
+    expect(gridContainer?.classList.contains('lg:grid-cols-4')).toBe(true)    // Small desktop (1024px+)
+    expect(gridContainer?.classList.contains('xl:grid-cols-5')).toBe(true)    // Large desktop (1280px+)
   })
 })
