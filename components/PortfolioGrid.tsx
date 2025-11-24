@@ -15,14 +15,20 @@ export default function PortfolioGrid({ portfolioData }: PortfolioGridProps) {
   useEffect(() => {
     const updatePriorityCount = () => {
       const width = window.innerWidth;
-      if (width < 768) {
-        // Mobile: 1 column, load first 2-3 images
+      if (width < 640) {
+        // Small mobile: 1 column, load first 3 images
         setPriorityCount(3);
+      } else if (width < 768) {
+        // Large mobile: 2 columns, load first 4 images (2 rows)
+        setPriorityCount(4);
       } else if (width < 1024) {
-        // Tablet: 2 columns, load first 4-6 images (2-3 rows)
+        // Tablet: 3 columns, load first 6 images (2 rows)
         setPriorityCount(6);
+      } else if (width < 1280) {
+        // Small desktop: 4 columns, load first 8 images (2 rows)
+        setPriorityCount(8);
       } else {
-        // Desktop: 5 columns, load first 10 images (2 rows)
+        // Large desktop: 5 columns, load first 10 images (2 rows)
         setPriorityCount(10);
       }
     };
@@ -41,7 +47,7 @@ export default function PortfolioGrid({ portfolioData }: PortfolioGridProps) {
   return (
     <main className="max-w-7xl mx-auto py-4">
       {/* Portfolio Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-0">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-0">
         {portfolioData.items.map((item, index) => (
           <Link 
             key={item.id} 
@@ -54,7 +60,7 @@ export default function PortfolioGrid({ portfolioData }: PortfolioGridProps) {
                 alt={item.title}
                 fill={true}
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
                 priority={index < priorityCount}
                 placeholder={
                   <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
