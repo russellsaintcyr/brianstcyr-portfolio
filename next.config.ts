@@ -1,28 +1,56 @@
+
 import type { NextConfig } from "next";
 
+const isGitHubPages = process.env.GITHUB_ACTIONS || process.env.EXPORT_MODE;
+
 const nextConfig: NextConfig = {
-  output: 'export',
-  trailingSlash: true,
-  basePath: process.env.NODE_ENV === 'production' ? '/brianstcyr-portfolio' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/brianstcyr-portfolio/' : '',
-  images: {
-    unoptimized: true,
-    qualities: [75, 85],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.ctfassets.net',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'cdn.myportfolio.com',
-        port: '',
-        pathname: '/**',
-      },
-    ],
-  },
+  ...(isGitHubPages && {
+    output: 'export',
+    trailingSlash: true,
+    basePath: '/brianstcyr-portfolio',
+    assetPrefix: '/brianstcyr-portfolio/',
+    images: {
+      unoptimized: true,
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'images.ctfassets.net',
+          port: '',
+          pathname: '/**',
+        },
+        {
+          protocol: 'https',
+          hostname: 'cdn.myportfolio.com',
+          port: '',
+          pathname: '/**',
+        },
+      ],
+    },
+    env: {
+      NEXT_PUBLIC_BASE_PATH: '/brianstcyr-portfolio',
+    },
+  }),
+  ...(!isGitHubPages && {
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'images.ctfassets.net',
+          port: '',
+          pathname: '/**',
+        },
+        {
+          protocol: 'https',
+          hostname: 'cdn.myportfolio.com',
+          port: '',
+          pathname: '/**',
+        },
+      ],
+    },
+    env: {
+      NEXT_PUBLIC_BASE_PATH: '',
+    },
+  })
 };
 
 export default nextConfig;
