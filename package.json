@@ -12,8 +12,10 @@
     "deploy": "gh-pages -d out",
     "test": "vitest",
     "test:watch": "vitest --watch",
+    "test:run": "vitest run",
     "seed-contentful": "npx tsx scripts/seed-contentful.ts",
-    "update-slugs": "npx tsx scripts/update-slugs.ts"
+    "update-slugs": "npx tsx scripts/update-slugs.ts",
+    "prepare": "husky"
   },
   "dependencies": {
     "@next/third-parties": "^16.0.3",
@@ -36,8 +38,16 @@
     "eslint": "^9",
     "eslint-config-next": "16.0.3",
     "gh-pages": "^6.1.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "tailwindcss": "^4",
     "typescript": "^5.9.3",
     "vitest": "^4.0.10"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "npm run test:run"
+    ]
   }
 }
