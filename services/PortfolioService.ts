@@ -14,14 +14,15 @@ export async function getEntriesByType<T = any>(contentType: string, options: Re
     console.log(`📁 Contentful not configured, returning empty array for type: ${contentType}`);
     return [];
   } else {
-    console.log(`📁 Fetching entries of type: ${contentType} from Contentful`);
+    console.log(`📁 Fetching ${contentType} entries from Contentful`);
   }
   try {
     const response = await client.getEntries({
       content_type: contentType,
       ...options,
     });
-    console.log(`📁 Fetched ${response.items.length} entries of type: ${contentType}`, response.items[0]);
+    console.log(`📁 Fetched ${response.items.length} ${contentType} ${response.items.length === 1 ? 'entry' : 'entries'}`, 
+      response.items.length === 1? response.items[0] : response.items);
     return response.items as T[];
   } catch (error) {
     console.error(`Error fetching entries for type ${contentType}:`, error);
