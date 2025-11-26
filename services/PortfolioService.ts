@@ -1,6 +1,5 @@
 import client from './ContentfulService';
 import { PortfolioItem, PortfolioData } from '@/types/portfolio';
-// import { portfolioData as staticPortfolioData } from '@/data/PortfolioData';
 
 // Check if Contentful is properly configured
 const isContentfulConfigured = () => {
@@ -8,6 +7,27 @@ const isContentfulConfigured = () => {
          process.env.CONTENTFUL_ACCESS_TOKEN && 
          process.env.CONTENTFUL_SPACE_ID !== 'fallback-space';
 };
+
+// Generic fetcher for any content type
+export async function getEntriesByType<T = any>(contentType: string, options: Record<string, any> = {}): Promise<T[]> {
+  if (!isContentfulConfigured()) {
+    console.log(`📁 Contentful not configured, returning empty array for type: ${contentType}`);
+    return [];
+  } else {
+    console.log(`📁 Fetching entries of type: ${contentType} from Contentful`);
+  }
+  try {
+    const response = await client.getEntries({
+      content_type: contentType,
+      ...options,
+    });
+    console.log(`📁 Fetched ${response.items.length} entries of type: ${contentType}`, response.items[0]);
+    return response.items as T[];
+  } catch (error) {
+    console.error(`Error fetching entries for type ${contentType}:`, error);
+    return [];
+  }
+}
 
 // Transform Contentful entry to PortfolioItem
 function transformContentfulEntry(entry: any): PortfolioItem {
@@ -35,6 +55,8 @@ export async function getPortfolioData(): Promise<PortfolioData> {
     console.log('📁 Using static portfolio data (Contentful not configured)');
     // return staticPortfolioData;
     return { items: [] };
+  } else {
+    console.log('📁 Fetching portfolio data from Contentful');
   }
 
   try {
@@ -44,7 +66,7 @@ export async function getPortfolioData(): Promise<PortfolioData> {
       order: ['sys.createdAt'], // You can change the ordering
     });
     const items: PortfolioItem[] = response.items.map(transformContentfulEntry);
-
+    console.log(`📁 Fetched ${items.length} portfolio items from Contentful`);
     return {
       items,
     };
