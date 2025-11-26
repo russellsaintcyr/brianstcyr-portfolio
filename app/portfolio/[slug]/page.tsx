@@ -104,11 +104,10 @@ export default async function PortfolioItemPage({ params }: PortfolioPageProps) 
           <Image
             src={item.imageUrl}
             alt={item.title}
-            width={0}
-            height={0}
-            className="max-w-[95vw] h-auto"
+            width={1200} // Use your typical image width
+            height={900} // Use your typical image height or adjust as needed
+            className="w-full max-w-[95vw] h-auto"
             sizes="95vw"
-            style={{ width: 'auto', height: 'auto', maxWidth: '95vw' }}
             priority
           />
         </div>
