@@ -9,8 +9,16 @@ interface PortfolioGridProps {
   portfolioData: PortfolioData;
 }
 
+
 export default function PortfolioGrid({ portfolioData }: PortfolioGridProps) {
   const [priorityCount, setPriorityCount] = useState(2); // Default for mobile
+
+  useEffect(() => {
+    // Log the number of images loaded from the server
+    if (portfolioData?.items?.length) {
+      console.log(`Loaded ${portfolioData.items.length} images from server call to Contentful`);
+    }
+  }, [portfolioData?.items?.length]);
 
   useEffect(() => {
     const updatePriorityCount = () => {

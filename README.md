@@ -4,8 +4,8 @@ A modern, responsive portfolio website showcasing the contemporary art of Brian 
 
 ## 🎨 Features
 
-- **Dynamic Content Management**: Contentful CMS integration for images and metadata, with automatic fallback to static data
-- **Responsive Grid Layout**: Adaptive layout that displays 1 column on mobile, 2 on tablet, and 5 on desktop
+- **Dynamic Content Management**: Contentful CMS integration for text, images and metadata, with automatic fallback to static data for network issues.
+- **Responsive Grid Layout**: Adaptive layout between 1 and 5 columns to accommodate small mobile devices and wide monitors
 - **Smart Lazy Loading**: Performance-optimized image loading with responsive priority counts
 - **SEO-Friendly URLs**: Slug-based routing (e.g., `/portfolio/marlboro-black-100s/`)
 - **Multi-Input Navigation**: 
@@ -47,9 +47,10 @@ A modern, responsive portfolio website showcasing the contemporary art of Brian 
 - **ESLint** - Code linting and quality enforcement
 
 ### Deployment & CI/CD
-- **GitHub Pages** - Static site hosting
-- **GitHub Actions** - Automated testing, building, and deployment
-- **Environment Variables** - Secure configuration management
+- **GitHub Pages** - Static site hosting (CI/CD via GitHub Actions)
+- **Vercel** - Full Next.js optimization, serverless functions, and SSR support (CI/CD via Vercel platform)
+- **Multi-Platform CI/CD** - Supports both static export and dynamic server execution
+- **Environment Variables** - Secure configuration management for both platforms
 
 ## 🧪 Testing
 
@@ -61,14 +62,30 @@ A modern, responsive portfolio website showcasing the contemporary art of Brian 
 - ✅ Priority count updates on window resize
 - ✅ Correct responsive grid CSS classes
 
+
 ## 🌐 Deployment
 
 ### Automatic Deployment
-The site automatically deploys to GitHub Pages when changes are pushed to the `main` branch:
+This project supports two deployment targets:
 
-1. **Tests Run** - Vitest ensures code quality
-2. **Build Process** - Next.js static export generation
-3. **Deploy** - Automatic deployment to GitHub Pages
+#### 1. GitHub Pages (SSG: Static Site Generation)
+- Changes pushed to `main` trigger GitHub Actions:
+  1. **Tests Run** - Vitest ensures code quality
+  2. **Build Process** - Next.js static export generation (`output: 'export'`)
+  3. **Deploy** - Automatic deployment to GitHub Pages
+
+#### 2. Vercel (SSR: Server-Side Rendering)
+- Any branch or PR pushed to GitHub triggers a Vercel Preview Deployment
+- Production deployment on `main` branch uses Vercel's full Next.js features:
+  - **Image Optimization**
+  - **Server-side Rendering (SSR)**
+  - **API Routes & Serverless Functions**
+  
+- Vercel handles environment variables and secrets securely
+
+### Switching Between Deployments
+- The project auto-detects the deployment environment and configures itself for static export (GitHub Pages) or full Next.js (Vercel)
+- See `next.config.ts` for environment-based configuration
 
 
 ## 📊 Analytics Configuration
@@ -126,9 +143,7 @@ Environment variables are set in the GitHub Actions workflow for automatic deplo
 
 ## 🚀 Future Enhancements
 
-- [ ] Content Management System integration
-- [ ] Image optimization with multiple formats
 - [ ] Progressive Web App (PWA) features
+- [ ] Direct PayPal/Venmo integration
 - [ ] Advanced SEO optimization
-- [ ] Performance monitoring dashboard
 - [ ] Social media integration
