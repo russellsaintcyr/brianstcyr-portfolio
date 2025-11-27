@@ -7,18 +7,24 @@ import { useState, useEffect } from 'react';
 
 interface PortfolioGridProps {
   portfolioData: PortfolioData;
+  renderMode?: 'SSG' | 'SSR';
 }
 
 
-export default function PortfolioGrid({ portfolioData }: PortfolioGridProps) {
+export default function PortfolioGrid({ portfolioData, renderMode }: PortfolioGridProps) {
   const [priorityCount, setPriorityCount] = useState(2); // Default for mobile
 
   useEffect(() => {
-    // Log the number of images loaded from the server
     if (portfolioData?.items?.length) {
-      console.log(`Loaded ${portfolioData.items.length} images from server call to Contentful`);
+      if (renderMode === 'SSG') {
+        console.log(`Loaded ${portfolioData.items.length} images at build time (SSG, static export). Content updates require a new deploy.`);
+      } else if (renderMode === 'SSR') {
+        console.log(`Loaded ${portfolioData.items.length} images at request time (SSR, server-side render). Content updates are live.`);
+      } else {
+        console.log(`Loaded ${portfolioData.items.length} images.`);
+      }
     }
-  }, [portfolioData?.items?.length]);
+  }, [portfolioData?.items?.length, renderMode]);
 
   useEffect(() => {
     const updatePriorityCount = () => {
