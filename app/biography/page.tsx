@@ -3,8 +3,8 @@ import { getEntriesByType } from '@/services/PortfolioService';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES, Document } from '@contentful/rich-text-types';
 
-// Force dynamic rendering to always fetch fresh data from Contentful
-export const dynamic = 'force-dynamic';
+// Force dynamic rendering only for Vercel (not GitHub Pages static export)
+export const dynamic = process.env.VERCEL ? 'force-dynamic' : undefined;
 
 // BiographyPage Component - Fetches biography and exhibitions from Contentful
 export default async function BiographyPage() {
