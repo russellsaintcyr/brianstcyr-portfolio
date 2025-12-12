@@ -3,9 +3,6 @@ import { getEntriesByType } from '@/services/PortfolioService';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES, Document } from '@contentful/rich-text-types';
 
-// Force dynamic rendering to always fetch fresh data from Contentful
-export const dynamic = 'force-dynamic';
-
 // BiographyPage Component - Fetches biography and exhibitions from Contentful
 export default async function BiographyPage() {
   const [bioEntry] = await getEntriesByType<any>('biography', { limit: 1 });
