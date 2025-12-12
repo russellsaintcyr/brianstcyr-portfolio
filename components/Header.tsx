@@ -56,7 +56,7 @@ export default function Header({ showBackButton = false, title }: HeaderProps) {
         <div className="relative" ref={menuRef}>
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-2 text-gray-600 hover:text-black transition-colors"
+            className="p-2 text-gray-600 hover:text-black transition-colors cursor-pointer"
             aria-label="Toggle menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -76,9 +76,15 @@ export default function Header({ showBackButton = false, title }: HeaderProps) {
             </Link>
             <Link 
               href="/biography" 
-              className={`block px-4 py-3 text-gray-700 hover:bg-gray-50 ${pathname === '/biography' ? 'bg-gray-50' : ''}`}
+              className={`block px-4 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 ${pathname === '/biography' ? 'bg-gray-50' : ''}`}
             >
               Biography
+            </Link>
+            <Link 
+              href="/exhibitions" 
+              className={`block px-4 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 ${pathname === '/exhibitions' ? 'bg-gray-50' : ''}`}
+            >
+              Exhibitions
             </Link>
             <Link 
               href="/fundraiser" 
